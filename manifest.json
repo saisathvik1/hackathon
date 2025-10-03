@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Form Buddy - Voice Form Helper",
+  "version": "0.1.0",
+  "description": "Voice-guided, LLM-assisted form filling for seniors with confirmations and clarifications.",
+  "action": {
+    "default_title": "Form Buddy",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://api.openai.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
+
+

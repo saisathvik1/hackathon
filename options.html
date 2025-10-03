@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Form Buddy Settings</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 16px; max-width: 720px; }
+      label { display: block; margin: 12px 0 6px; font-weight: 600; }
+      input[type="text"], input[type="password"], select { width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 8px; }
+      .row { display: flex; gap: 12px; }
+      .col { flex: 1; }
+      .small { color: #6b7280; font-size: 12px; }
+      button { background: #2563eb; color: #fff; border: 1px solid #1d4ed8; border-radius: 8px; padding: 8px 12px; cursor: pointer; margin-top: 16px; }
+    </style>
+  </head>
+  <body>
+    <h2>Form Buddy Settings</h2>
+    <label for="apiKey">OpenAI API Key</label>
+    <input id="apiKey" type="password" placeholder="sk-..." />
+    <div class="small">Used to generate explanations and clarifications. Leave empty to use local fallback explanations.</div>
+
+    <div class="row">
+      <div class="col">
+        <label for="lang">Voice Language</label>
+        <select id="lang">
+          <option value="en-US">English (US)</option>
+          <option value="en-GB">English (UK)</option>
+          <option value="es-ES">Español (ES)</option>
+          <option value="hi-IN">हिन्दी (IN)</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="rate">Voice Speed</label>
+        <input id="rate" type="text" value="0.9" />
+      </div>
+      <div class="col">
+        <label for="pitch">Voice Pitch</label>
+        <input id="pitch" type="text" value="1" />
+      </div>
+    </div>
+
+    <label><input id="redactPII" type="checkbox" checked /> Redact PII before LLM calls</label>
+    <div class="small">We try to mask email, phone, SSN, and addresses before sending content.</div>
+
+    <button id="save">Save</button>
+    <span id="status" class="small"></span>
+
+    <script src="options.js"></script>
+  </body>
+  </html>
+
+
